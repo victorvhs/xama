@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="../static/bts3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/normalize.css" rel="stylesheet">
+    <link href="../static/css/estilo.css" rel="stylesheet">
+    <link href="../static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/bts3/js/bootstrap.min.js"></script>
+    {% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      {% block nav %}
+      <header class="page-header">
+        <h1>Controle</h1>
+        <nav>
+          <ul class="nav nav-pills">
+            <li role="presentation" class="{{classe1}}"><a href="{{url_for('index')}}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp;Home</a></li>
+            <li role="presentation" class="{{classe2}}"><a href="{{ url_for('listar') }}"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Buscar</a></li>
+            <li role="presentation" class="{{classe3}}"><a href="{{ url_for('novochamado') }}"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Incluir</a></li>
+            <li role="presentation" class="{{classe4}}"><a href="{ {url_for('adm') }}"><i class="fa fa-cogs" aria-hidden="true"></i>&nbsp;Adminstração</a></li>
+          </ul>
+        </nav>
+      </header>
+      {% endblock %}
+      {% block conteudo %}
+      {% endblock %}
+  </body>
+</html>

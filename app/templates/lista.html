@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{%block head %}
+    {{super()}}
+{%endblock%}
+
+{%block nav%}
+    {{super()}}
+{%endblock%}
+{% block conteudo %}
+        <h1>Lista de Clientes </h1>
+        <form class="" action="index.html" method="post">
+          <div class="form-inline">
+            <input type="text" class="form-control" placeholder="Digite o chamado">
+            <button type="submit" name="button" class="btn btn-primary">Procurar</button>
+          </div>
+        </form>
+        <br>
+        <table class="table table-hover">
+            <tr>
+                <th scope="row">ID</th>
+                <td>Chamado</td>
+                <td>Data</td>
+                <td>Cidade</td>
+                <td>Pedido</td>
+                <td>Pedido Na oficina</td>
+                <td>Rota</td>
+                <td>obs</td>
+                <td>Editar</td>
+                <td>Exlcuir</td>
+            </tr>
+            {% for chamado in chamados %}
+            <tr>
+                <td>{{chamado.id}}</td>
+                <td>{{chamado.chamado}}</td>
+                <td>{{chamado.data}}</td>
+                <td>{{chamado.cidade}}</td>
+                <td>{{chamado.pedido}}</td>
+                <td>{{chamado.pedido_of}}</td>
+                <td>{{chamado.rota}}</td>
+                <td>{{chamado.obs}}</td>
+                <td>
+                    <a type="button" class="btn btn-warning" href="/editar/{{chamado._id}}">
+                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td>
+                    <a type="button" class="btn btn-danger" href="/excluir/{{chamado._id}}">
+                         <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+{%endblock%}
